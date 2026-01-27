@@ -3,6 +3,7 @@ body {
   width: 100vw;
   margin: 0;
   background-color: #eff2f1;
+  font-family: "Segoe UI", "Open Sans", "Helvetica Neue", sans-serif;
 }
 
 #header {
