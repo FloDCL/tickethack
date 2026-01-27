@@ -60,7 +60,7 @@ body {
   display: grid;
   background-color: white;
   padding: 20px;
-  border-radius: 5%;
+  border-radius: 20px;
   align-content: start;
   width: 250px;
 }
@@ -123,14 +123,17 @@ body {
 
 #content-right {
   display: grid;
+  height: 310px;
+  overflow-y: auto;
   background-color: white;
-  padding: 15px;
+  padding: 30px;
   text-align: center;
-  border-radius: 5%;
+  border-radius: 20px;
   width: 250px;
   place-items: center;
   align-content: center;
   gap: 10px;
+  font-size: 12px;
 }
 
 img {
@@ -143,4 +146,41 @@ img {
   border: 0;
   border-top: 2px solid #459e85;
   margin: 5px 0;
+}
+
+.cityContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 10px;
+  background-color: #f5eeee;
+  border-radius: 5px;
+  margin-bottom: 5px;
+}
+
+.trip-route {
+  flex: 2;
+  text-align: left;
+  font-weight: bold;
+}
+
+.trip-time {
+  flex: 1;
+  text-align: center;
+}
+
+.trip-price {
+  flex: 1;
+  text-align: right;
+  margin-right: 10px;
+}
+
+.addbook {
+  background-color: #2fb695;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
 }
