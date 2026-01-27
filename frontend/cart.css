@@ -24,6 +24,7 @@ body {
 
 #logoButton {
   font-size: 22px;
+  font-weight: bold;
   color: #459e85;
   text-decoration: none;
 }
