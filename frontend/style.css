@@ -3,7 +3,7 @@ body {
   width: 100vw;
   margin: 0;
   background-image: url("./images/background.jpg");
-  background-position: center;
+  background-position: top center;
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -19,6 +19,7 @@ body {
 }
 
 #contenu {
+  margin-top: 50px;
   color: white;
   text-align: center;
 }
@@ -27,23 +28,6 @@ body {
   font-size: 22px;
   color: #459e85;
   text-decoration: none;
-}
-
-#book_affichage {
-  display: flex;
-  justify-content: center;
-  align-items: stretch;
-  gap: 150px;
-  padding: 20px;
-}
-
-#content-left {
-  display: grid;
-  background-color: white;
-  padding: 15px;
-  border-radius: 5%;
-  align-content: start;
-  width: 300px;
 }
 
 #boutonDroite {
@@ -61,43 +45,78 @@ body {
   text-decoration: none;
 }
 
+#book_affichage {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  gap: 150px;
+  padding: 20px;
+  margin-top: 50px;
+}
+
+#content-left {
+  display: grid;
+  background-color: white;
+  padding: 15px;
+  border-radius: 5%;
+  align-content: start;
+  width: 300px;
+}
+
 #departure {
-  color: black;
-  border-top-left-radius: 5%;
-  border-top-right-radius: 5%;
+  color: rgb(82, 81, 81);
+  font-weight: bold;
+  border-radius: 5px;
   border-width: 0px;
+  border-bottom: 1px solid #ccc;
   background-color: rgb(243, 241, 241);
+  padding: 10px;
 }
 #departure::placeholder {
-  color: black;
-  padding-left: 10px;
+  color: grey;
+  font-weight: normal;
+}
+
+#separator1 {
+  width: 95%;
+  border: 0;
+  border-top: 1px solid gray;
+  margin: 0px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 #arrival {
-  color: black;
-  border-bottom-left-radius: 5%;
-  border-bottom-right-radius: 5%;
+  font-weight: bold;
+  color: rgb(82, 81, 81);
+  border-radius: 5px;
   border-width: 0px;
+  border-top: 1px solid #ccc;
   background-color: rgb(243, 241, 241);
+  padding: 10px;
 }
 #arrival::placeholder {
-  color: black;
-  padding-left: 10px;
+  color: grey;
+  font-weight: normal;
 }
 
 #dateValue {
   background-color: rgb(243, 241, 241);
+  color: rgb(82, 81, 81);
   border-width: 0px;
-  border-radius: 5%;
-  padding: 5px;
+  border-radius: 5px;
+  padding: 10px;
+  margin-top: 50px;
+  width: 92%;
 }
 
 #btn-src {
   color: white;
   background-color: #459e85;
   border-width: 0px;
-  padding: 5px;
-  border-radius: 5%;
+  padding: 10px;
+  border-radius: 5px;
+  margin-top: 100px;
 }
 
 #content-right {
@@ -107,5 +126,19 @@ body {
   text-align: center;
   border-radius: 5%;
   width: 300px;
-  align-content: start;
+  place-items: center;
+  align-content: center;
+  gap: 10px;
+}
+
+img {
+  width: 100px;
+  height: auto;
+}
+
+#separator2 {
+  width: 75%;
+  border: 0;
+  border-top: 2px solid #459e85;
+  margin: 5px 0;
 }
