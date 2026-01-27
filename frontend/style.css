@@ -13,15 +13,37 @@ body {
   justify-content: space-between;
   align-items: center;
   height: 6vh;
-  padding: 25px 30px 25px 30px;
+  padding: 10px 30px 10px 30px;
   color: white;
   background-color: white;
 }
 
+#contenu {
+  color: white;
+  text-align: center;
+}
+
 #logoButton {
-  font-size: 25px;
+  font-size: 22px;
   color: #459e85;
   text-decoration: none;
+}
+
+#book_affichage {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  gap: 150px;
+  padding: 20px;
+}
+
+#content-left {
+  display: grid;
+  background-color: white;
+  padding: 15px;
+  border-radius: 5%;
+  align-content: start;
+  width: 300px;
 }
 
 #boutonDroite {
@@ -39,7 +61,51 @@ body {
   text-decoration: none;
 }
 
-#logo {
-  width: 60px;
-  margin-right: 25px;
+#departure {
+  color: black;
+  border-top-left-radius: 5%;
+  border-top-right-radius: 5%;
+  border-width: 0px;
+  background-color: rgb(243, 241, 241);
+}
+#departure::placeholder {
+  color: black;
+  padding-left: 10px;
+}
+
+#arrival {
+  color: black;
+  border-bottom-left-radius: 5%;
+  border-bottom-right-radius: 5%;
+  border-width: 0px;
+  background-color: rgb(243, 241, 241);
+}
+#arrival::placeholder {
+  color: black;
+  padding-left: 10px;
+}
+
+#dateValue {
+  background-color: rgb(243, 241, 241);
+  border-width: 0px;
+  border-radius: 5%;
+  padding: 5px;
+}
+
+#btn-src {
+  color: white;
+  background-color: #459e85;
+  border-width: 0px;
+  padding: 5px;
+  border-radius: 5%;
+}
+
+#content-right {
+  display: grid;
+  background-color: white;
+  padding: 15px;
+  text-align: center;
+  border-radius: 5%;
+  width: 300px;
+  align-content: start;
 }
