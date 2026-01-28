@@ -40,18 +40,27 @@ document.querySelector("#btn-src").addEventListener("click", function () {
     });
 });
 
-function updateDeleteCityEventListener() {
-  for (let i = 0; i < document.querySelectorAll(".deleteCity").length; i++) {
-    document
-      .querySelectorAll(".deleteCity")
-      [i].addEventListener("click", function () {
-        fetch(`http://localhost:3000/weather/${this.id}`, { method: "DELETE" })
-          .then((response) => response.json())
-          .then((data) => {
-            if (data.result) {
-              this.parentNode.remove();
-            }
-          });
-      });
-  }
-}
+document
+  .querySelector("#content-right")
+  .addEventListener("click", function (event) {
+    if (event.target.classList.contains("addbook")) {
+      const tripId = event.target.id;
+
+      console.log("ID", tripId);
+
+      fetch("http://localhost:3000/cart", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ tripId: tripId }),
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          if (data.result) {
+            window.location.assign("cart.html");
+          }
+        })
+        .catch((err) =>
+          console.error("Erreur lors de l'ajout au panier :", err),
+        );
+    }
+  });

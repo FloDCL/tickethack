@@ -3,6 +3,8 @@ var router = express.Router();
 const trip = require("../models/trips");
 const moment = require("moment");
 
+const Cart = require("../models/cart");
+
 router.get("/trajet", (req, res) => {
   trip.find().then((data) => {
     res.json({ trips: data });
@@ -70,4 +72,22 @@ router.post("/search", (req, res) => {
     });
 });
 
+router.post("/cart", (req, res) => {
+  const newCartItem = new Cart({ trip: req.body.tripId });
+  newCartItem.save().then(() => res.json({ result: true }));
+});
+
+router.get("/cart", (req, res) => {
+  Cart.find()
+    .populate("trip")
+    .then((data) => {
+      res.json({ result: true, cart: data });
+    });
+});
+
+router.delete("/cart/:cartId", (req, res) => {
+  Cart.findByIdAndDelete(req.params.cartId).then(() => {
+    res.json({ result: true });
+  });
+});
 module.exports = router;
