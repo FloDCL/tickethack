@@ -39,3 +39,19 @@ document.querySelector("#btn-src").addEventListener("click", function () {
       }
     });
 });
+
+function updateDeleteCityEventListener() {
+  for (let i = 0; i < document.querySelectorAll(".deleteCity").length; i++) {
+    document
+      .querySelectorAll(".deleteCity")
+      [i].addEventListener("click", function () {
+        fetch(`http://localhost:3000/weather/${this.id}`, { method: "DELETE" })
+          .then((response) => response.json())
+          .then((data) => {
+            if (data.result) {
+              this.parentNode.remove();
+            }
+          });
+      });
+  }
+}
