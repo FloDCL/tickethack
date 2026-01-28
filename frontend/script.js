@@ -34,8 +34,15 @@ document.querySelector("#btn-src").addEventListener("click", function () {
           document.querySelector("#arrival").value = "";
         }
       } else {
-        document.querySelector("#content-right").innerHTML =
-          "<p>No trip found.</p>";
+        document.querySelector("#content-right").innerHTML = `
+        <div id="imagePlaceholder">
+            <img src="./images/notfound.png"/>
+        </div>
+        <hr id="separator2">
+        <div id="textePlaceholder">
+            <p>No trip found.</p>
+        </div>
+        `;
       }
     });
 });

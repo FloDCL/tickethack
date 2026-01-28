@@ -2,7 +2,7 @@ var express = require("express");
 var router = express.Router();
 const trip = require("../models/trips");
 const moment = require("moment");
-
+const Booking = require("../models/bookings");
 const Cart = require("../models/cart");
 
 router.get("/trajet", (req, res) => {
@@ -90,4 +90,37 @@ router.delete("/cart/:cartId", (req, res) => {
     res.json({ result: true });
   });
 });
+
+router.get("/bookings", (req, res) => {
+  const now = new Date();
+
+  Booking.find()
+    .populate("trip")
+    .then((bookings) => {
+      const expiredBookings = bookings.filter(
+        (b) => new Date(b.trip.date) < now,
+      );
+      const expiredIds = expiredBookings.map((b) => b._id);
+
+      Booking.deleteMany({ _id: { $in: expiredIds } }).then(() => {
+        Booking.find()
+          .populate("trip")
+          .then((data) => {
+            res.json({ result: true, bookings: data });
+          });
+      });
+    });
+});
+
+router.post("/bookings", (req, res) => {
+  Cart.find().then((cartItems) => {
+    if (cartItems.length === 0) return res.json({ result: false });
+
+    const newBookings = cartItems.map((item) => ({ trip: item.trip }));
+    Booking.insertMany(newBookings).then(() => {
+      Cart.deleteMany({}).then(() => res.json({ result: true }));
+    });
+  });
+});
+
 module.exports = router;
